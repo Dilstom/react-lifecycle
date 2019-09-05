@@ -28,8 +28,8 @@ class Lifecycle extends Component {
  componentDidUpdate(prevProps, prevState) {
   // setState() will lead to infinite loop (in Updating flow - setState() and forceUpdate() triger render)
   console.log('in CDU');
-  console.log('prevProps', prevProps);
-  console.log('prevState', prevState);
+  //   console.log('prevProps', prevProps);
+  //   console.log('prevState', prevState);
   // we can use conditional statement to setState()
   if (this.state.displayString) {
    if (this.state.increment) {
@@ -43,6 +43,11 @@ class Lifecycle extends Component {
    }
   }
  }
+
+ componentWillUnmount = () => {
+  // runs when we close/hide this component
+  console.log('in componentWillUnmount');
+ };
 
  render() {
   console.log('in render');
